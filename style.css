@@ -1,0 +1,155 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+
+#welcom-msg {
+  position: relative;
+  overflow: hidden;
+  padding: 25px 0;
+  text-align: center;
+  color: #ffffff;
+  font-family: sans-serif;
+  letter-spacing: 3px;
+  
+  /* गहरे अंतरिक्ष जैसा लाइव रंग-बिरंगा बैकग्राउंड */
+  background: linear-gradient(-45deg, #050510, #1a0b2e, #091e3a, #240046);
+  background-size: 400% 400%;
+  animation: galaxyShift 8s ease infinite;
+  
+  /* टेक्स्ट और निचले हिस्से पर रंग-बिरंगी निऑन चमक */
+  text-shadow: 0 0 10px #00f0ff, 0 0 20px #ff007f;
+  border-bottom: 3px solid #00f0ff;
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.4);
+  z-index: 1;
+}
+#welcom-msg::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 15% 30%, #ffffff, transparent),
+    radial-gradient(2px 2px at 35% 70%, #00f0ff, transparent),
+    radial-gradient(3px 3px at 55% 25%, #ff007f, transparent),
+    radial-gradient(2px 2px at 75% 80%, #ffffff, transparent),
+    radial-gradient(2px 2px at 90% 40%, #ffe600, transparent);
+  background-size: 250px 100px;
+  animation: starTwinkle 3s infinite alternate;
+  z-index: -1;
+}
+
+#welcom-msg::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 45px,
+    rgba(0, 240, 255, 0.25) 46px,
+    rgba(255, 0, 127, 0.25) 48px
+  );
+  animation: neonLinesMove 4s linear infinite;
+  z-index: -1;
+}
+@keyframes galaxyShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 0.3; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes neonLinesMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+
+.choice{
+   display: inline-block;
+  cursor: pointer;
+  /* स्मूथ एनीमेशन के लिए transition ज़रूरी है */
+  transition: transform 0.7s ease, border-radius 0.6s ease, box-shadow 0.7s ease;
+
+    height: 165px;
+    width: 165px;
+    border-radius: 50%;
+    margin-top: 100px;
+    border: 4px solid transparent;
+    
+}
+
+.choice:hover{
+     /* इमेज को थोड़ा ऊपर उठाने और हल्का बड़ा करने के लिए */
+  transform: translateY(-12px) scale(1.08);
+  
+  /* एकदम गोल (Circle) आकार देने के लिए */
+  border-radius: 50%;
+  
+  /* ऊपर उठने जैसा लुक देने के लिए परछाई (Shadow) */
+  box-shadow: 0 15px 25px rgba(181, 46, 87, 0.4);
+  background-color: rgb(210, 203, 205);
+
+}
+
+.choices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   gap: 5rem;
+   object-fit: cover;
+}
+
+img{
+    display: block;
+  transition: transform 0.3s ease, border-radius 0.3s ease;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.score-board{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    gap: 4rem;
+}
+
+.score{
+    text-align: center;
+   
+    gap: 1rem;
+}
+
+.msg-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+
+#msg{
+  background-color: #a0a5aa;
+    font-size: 3rem;
+    display: inline;
+   padding: 2rem;
+    margin-top: 4rem;
+    box-shadow:0 0 0 3px #ffffff, 0 0 45px #a73b53, 0 0 45px #7e4082 !important; /* तेज़ नीली निऑन चमक */
+    border-radius: 20px;
+}
+/* क्लिक करने पर निऑन चमक और दबने वाला इफ़ेक्ट */
+.clicked-effect {
+  transform: scale(0.92) !important; /* हल्का सा अंदर दबने के लिए */
+  border-color: #ffffff;
+  box-shadow:0 0 0 3px #ffffff, 0 0 25px #00f0ff, 0 0 50px #00f0ff !important; /* तेज़ नीली निऑन चमक */
+
+}
